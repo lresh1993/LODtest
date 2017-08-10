@@ -1,0 +1,1496 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<title>LOD IRVM Working Map</title>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'/>
+
+<!-- Start Mobile Optimization -->
+<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- End Mobile Optimization -->
+
+	
+<!-- *******************DO NOT REMOVE***************** -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="crossorigin=""></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-easybutton@2.0.0/src/easy-button.css">
+<script src="https://unpkg.com/leaflet-easybutton@2.0.0/src/easy-button.js"></script>
+<!-- *******************DO NOT REMOVE***************** -->
+
+
+<!-- Start CSS Data Load -->
+  
+<link rel="stylesheet" href="css/Leaflet.Coordinates-0.1.5.css"/>
+<link rel="stylesheet" href="css/L.Control.Locate.css"/>
+<link rel="stylesheet" href="css/Leaflet.NavBar.css"/>
+<link rel="stylesheet" href="css/Control.MiniMap.css"/>
+<link rel="stylesheet" href="css/Control.OSMGeocoder.css"/>
+<link rel="stylesheet" href="css/esri-leaflet-geocoder.css"/>
+<link rel="stylesheet" href="css/gh-fork-ribbon.ie.css"/>
+<link rel="stylesheet" href="css/gh-fork-ribbon.css"/>
+<link rel="stylesheet" href="css/leaflet-control-credits.css" />
+<link rel="stylesheet" href="css/styledLayerControl.css" />
+<link rel="stylesheet" href="css/leaflet-measure.css" />
+<link rel="stylesheet" href="css/leaflet.bookmarks.min.css" />
+<link rel="stylesheet" href="css/leaflet.bookmarks.css" />
+<link rel="stylesheet" href="css/Control.Geocoder.css" />
+<link rel="stylesheet" href="css/leaflet.draw.css" />
+<link rel="stylesheet" href="css/L.VisualClick.css" />
+<link rel="stylesheet" href="css/easy-button.css" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<!-- End CSS Data Load -->
+
+
+<!-- Start Scripts Data Load -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/leaflet/1.0.0-rc.1/leaflet-src.js"></script>
+<script src="https://cdn.jsdelivr.net/leaflet.esri/2.0.0/esri-leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/leaflet.esri.gp/2.0.0/esri-leaflet-gp.js"></script>
+<script src="https://cdn.jsdelivr.net/leaflet.esri.geocoder/2.0.2/esri-leaflet-geocoder.js"></script>
+<script type="text/javascript" src="scripts/L.Control.Locate.js"></script>
+<script type="text/javascript" src="scripts/TileLayer.WMTS.js"></script>
+<script type="text/javascript" src="scripts/leaflet-tilelayer-wmts.js"></script>
+<script type="text/javascript" src="scripts/Leaflet.Coordinates-0.1.5.js"></script>
+<script type="text/javascript" src="scripts/Leaflet.NavBar.js"></script>
+<script type="text/javascript" src="scripts/Control.MiniMap.js"></script>
+<script type="text/javascript" src="scripts/Control.OSMGeocoder.js"></script>
+<script type="text/javascript" src="scripts/catiline.js"></script>
+<script type="text/javascript" src="scripts/catiline.js"></script> 
+<script type="text/javascript" src="scripts/leaflet.fgdb.js"></script> 
+<script type="text/javascript" src="scripts/leaflet-control-credits.js"></script>
+<script type="text/javascript" src="scripts/styledLayerControl.js"></script>
+<script type="text/javascript" src="scripts/leaflet-measure.min.js"></script>
+<script type="text/javascript" src="scripts/Control.Draw.js"></script>
+<script type="text/javascript" src="scripts/leaflet.filelayer.js"></script>
+<script type="text/javascript" src="scripts/Leaflet.Bookmarks.js"></script>
+<script type="text/javascript" src="scripts/Leaflet.Bookmarks.min.js"></script>
+<script type="text/javascript" src="scripts/Control.Geocoder.js"></script>
+<script type="text/javascript" src="scripts/leaflet.browser.print.min.js"></script>
+<script type="text/javascript" src="scripts/leaflet.browser.print.js"></script>
+<script type="text/javascript" src="scripts/leaflet.browser.print.utils.js"></script>
+<script type="text/javascript" src="scripts/Leaflet.draw.js"></script>
+<script type="text/javascript" src="scripts/Leaflet.Draw.Event.js"></script>
+<script type="text/javascript" src="scripts/Toolbar.js"></script>
+<script type="text/javascript" src="scripts/Tooltip.js"></script>
+<script type="text/javascript" src="scripts/GeometryUtil.js"></script>
+<script type="text/javascript" src="scripts/LatLngUtil.js"></script>
+<script type="text/javascript" src="scripts/LineUtil.Intersect.js"></script>
+<script type="text/javascript" src="scripts/Polygon.Intersect.js"></script>
+<script type="text/javascript" src="scripts/Polyline.Intersect.js"></script>
+<script type="text/javascript" src="scripts/TouchEvents.js"></script>
+<script type="text/javascript" src="scripts/DrawToolbar.js"></script>
+<script type="text/javascript" src="scripts/Draw.Feature.js"></script>
+<script type="text/javascript" src="scripts/Draw.SimpleShape.js"></script>
+<script type="text/javascript" src="scripts/Draw.Polyline.js"></script>
+<script type="text/javascript" src="scripts/Draw.Marker.js"></script>
+<script type="text/javascript" src="scripts/Draw.Circle.js"></script>
+<script type="text/javascript" src="scripts/Draw.CircleMarker.js"></script>
+<script type="text/javascript" src="scripts/Draw.Polygon.js"></script>
+<script type="text/javascript" src="scripts/Draw.Rectangle.js"></script>
+<script type="text/javascript" src="scripts/EditToolbar.js"></script>
+<script type="text/javascript" src="scripts/EditToolbar.Edit.js"></script>
+<script type="text/javascript" src="scripts/EditToolbar.Delete.js"></script>
+<script type="text/javascript" src="scripts/Control.Draw.js"></script>
+<script type="text/javascript" src="scripts/Edit.Poly.js"></script>
+<script type="text/javascript" src="scripts/Edit.SimpleShape.js"></script>
+<script type="text/javascript" src="scripts/Edit.Rectangle.js"></script>
+<script type="text/javascript" src="scripts/Edit.Marker.js"></script>
+<script type="text/javascript" src="scripts/Edit.CircleMarker.js"></script>
+<script type="text/javascript" src="scripts/Edit.Circle.js"></script>
+<script type="text/javascript" src="scripts/L.VisualClick.js"></script>
+<script type="text/javascript" src="scripts/easy-button.js"></script>
+<script type="text/javascript" src="scripts/d3.v3.min.js"></script>
+<script type="text/javascript" src="scripts/metatable.js"></script>
+<!-- End Scripts Data Load -->
+
+
+<!-- Start GeoJSON Data Load -->
+
+<script type="text/javascript" src="data/ProjectLimits/BA711.txt"></script>
+<script type="text/javascript" src="data/ProjectLimits/AA174.txt"></script>
+<script type="text/javascript" src="data/ProjectLimits/BA637.txt"></script>
+<script type="text/javascript" src="data/ProjectLimits/HO245.txt"></script>
+<script type="text/javascript" src="data/ProjectLimits/MO384.txt"></script>
+<script type="text/javascript" src="data/ProjectLimits/PG402.txt"></script>
+<script type="text/javascript" src="data/ProjectLimits/WA255.txt"></script>
+<script type="text/javascript" src="data/Completed/AT0625124.txt"></script>
+<script type="text/javascript" src="data/Completed/AT0645124.txt"></script>
+<script type="text/javascript" src="data/Completed/AT0825124.txt"></script>
+<script type="text/javascript" src="data/Completed/AT0835124.txt"></script>
+<script type="text/javascript" src="data/Completed/AX0705124.txt"></script>
+<script type="text/javascript" src="data/Completed/AX0715124.txt"></script>
+<script type="text/javascript" src="data/Completed/AX0725124.txt"></script>
+<script type="text/javascript" src="data/Completed/AX0795124SBR.txt"></script>
+<script type="text/javascript" src="data/Completed/AX6205124.txt"></script>
+<script type="text/javascript" src="data/Completed/PG7455168.txt"></script>
+<script type="text/javascript" src="data/Completed/WI2305124.txt"></script>
+<script type="text/javascript" src="data/Active/AA1745124.txt"></script>
+<script type="text/javascript" src="data/Active/AT0615124.txt"></script>
+<script type="text/javascript" src="data/Active/AX0076114.txt"></script>
+<script type="text/javascript" src="data/Active/AX0805124.txt"></script>
+<script type="text/javascript" src="data/Active/BA7115224.txt"></script>
+<script type="text/javascript" src="data/Active/MO3845224.txt"></script>
+<script type="text/javascript" src="data/Active/PG9595124.txt"></script>
+<script type="text/javascript" src="data/In-Design/AA1755124.txt"></script>
+<script type="text/javascript" src="data/In-Design/BA4475124.txt"></script>
+<script type="text/javascript" src="data/In-Design/BA6375324.txt"></script>
+<script type="text/javascript" src="data/In-Design/HO2455124.txt"></script>
+<script type="text/javascript" src="data/In-Design/MO6455224.txt"></script>
+<script type="text/javascript" src="data/In-Design/PG4025324.txt"></script>
+<script type="text/javascript" src="data/In-Design/PG4045224.txt"></script>
+<script type="text/javascript" src="data/In-Design/PG4045324.txt"></script>
+<script type="text/javascript" src="data/In-Design/WA2555124.txt"></script>
+<script type="text/javascript" src="data/In-Design/WA2595124.txt"></script>
+<script type="text/javascript" src="data/Extra/maryland.txt"></script>
+<script type="text/javascript" src="data/Extra/DNR_Critical.txt"></script>
+<script type="text/javascript" src="data/Extra/SHAfacilities.txt"></script>
+<script type="text/javascript" src="data/Extra/trafficbarriers.txt"></script>
+
+<!-- End GeoJSON Data Load -->
+
+	<style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            position: absolute;
+            top: 6.5%;
+            bottom: 0;
+            width: 100%;
+        }
+        #export {
+			position: absolute;
+            background-color: #ff0000;
+			border: none;
+			color: white;
+			padding: 13px 40px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			top:0.5%;
+			right:4.5px;
+        }
+		.myButton {
+			-moz-box-shadow:inset 0px 1px 0px 0px #9acc85;
+			-webkit-box-shadow:inset 0px 1px 0px 0px #9acc85;
+			box-shadow:inset 0px 1px 0px 0px #9acc85;
+			background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a), color-stop(1, #68a54b));
+			background:-moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+			background:-webkit-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+			background:-o-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+			background:-ms-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+			background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#74ad5a', endColorstr='#68a54b',GradientType=0);
+			background-color:#74ad5a;
+			border:1px solid #3b6e22;
+			display:inline-block;
+			cursor:pointer;
+			color:#ffffff;
+			font-family:Arial;
+			font-size:13px;
+			font-weight:bold;
+			padding:10px 12px;
+			text-decoration:none;
+		}
+		.myButton:hover {
+			background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #68a54b), color-stop(1, #74ad5a));
+			background:-moz-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+			background:-webkit-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+			background:-o-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+			background:-ms-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+			background:linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#68a54b', endColorstr='#74ad5a',GradientType=0);
+			background-color:#68a54b;
+		}
+		.myButton:active {
+			position:relative;
+			top:1px;
+		}
+		body {margin:0;}
+
+		.topnav {
+			overflow: hidden;
+			background-color: #333;
+			border: 2.5px solid gray;
+		}
+
+		.topnav a {
+			float: left;
+			display: block;
+			color: #f2f2f2;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 17px;
+		}
+
+		.topnav a:hover {
+			background-color: #ddd;
+			color: black;
+		}
+
+		.topnav a.active {
+			background-color: #4CAF50;
+			color: white;
+	}
+
+	</style>
+</head>
+
+<body>
+
+
+<div id='map'></div>
+<a href='#' class="myButton" id='export'>Export Features</a>
+<div class="topnav" id="myTopnav">
+  <a href="http://shaintranet/oed/default.aspx">Landscape Operations IRVM Web Application</a>
+</div>
+
+
+
+<script>
+
+// initialize map
+var map = L.map('map').setView([39.306675, -76.621742], 12);
+map.options.minZoom = 8;
+map.options.maxZoom = 20;
+
+// ***********************************************************BASEMAPS **********************************************************************
+
+// Openstreet
+var OpenStreetMap_Mapnik = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+//Mapbox
+var Map_Box = new L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+  id: 'mapbox.streets'
+ });
+ 
+// Mapbox Satellite
+var MapboxSatellite = new L.tileLayer ('https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibHJlc2giLCJhIjoiY2ludXI3MmV5MTI0N3VnbHkycnpnenowNCJ9.VyMIrAJAszJ5wYecIHkwbg', {
+  id: 'mapbox.sate'
+ });
+ 
+ 
+ //Google Maps
+var Google = new L.tileLayer('http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}', {
+            attribution: 'google'
+        });
+ 
+ 
+//	Esri - World Imagery
+var Esri_WorldImagery = new L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	format: 'image/png',
+	minZoom: 2,
+	maxZoom: 19,
+	opacity: 1,
+	attribution: 'Tiles &copy; <a href="http://www.esri.com">Esri</a> &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, and others'
+});
+
+// Open Topo Map
+var OpenTopoMap = L.tileLayer('http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	maxZoom: 17,
+	attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+});
+
+
+//  OpenWeatherMap - Temperature refer to http://openweathermap.org/map_legend for color codes
+var temperature = new L.tileLayer('http://{s}.tile.openweathermap.org/map/temp/{z}/{x}/{y}.png', {
+	format: 'image/png',
+	minZoom: 2,
+	maxZoom: 19,
+	opacity: 0.5,
+	attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>'
+});
+
+// The National Map (Interstate and US)
+var majorroads = new L.TileLayer.WMS('http://services.nationalmap.gov/arcgis/services/transportation/MapServer/WMSServer', {
+	format: 'image/png',
+	layers: '6,7,15,16',
+	minZoom: 3,
+	maxZoom: 16,
+	opacity: 1,
+	transparent: true,
+	zIndex: 1000,
+	attribution: 'Map tiles courtesy of <a href="http://viewer.nationalmap.gov/services/" target="_blank">US Geological Survey</a>'
+	});
+
+	
+// National Land Cover Database (NLCD)
+var landcover = new L.TileLayer.WMS('http://raster.nationalmap.gov/arcgis/services/LandCover/USGS_EROS_LandCover_NLCD/MapServer/WmsServer?"/>', {
+	format: 'image/png',
+	layers: '6,7,15,16',
+	minZoom: 3,
+	maxZoom: 16,
+	opacity: 1,
+	transparent: true,
+	zIndex: 1000,
+	attribution: 'Map tiles courtesy of <a href="http://viewer.nationalmap.gov/services/" target="_blank">US Geological Survey</a>'
+	});
+	
+// OpenMapSurfer
+var OpenMapSurfer_Roads = L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}', {
+	maxZoom: 20,
+	attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+
+//Open black and white
+var OpenStreetMap_BlackAndWhite = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+	maxZoom: 18,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+
+	
+// **********************************************************EXTRAS***********************************************************************
+var maryland = new L.LayerGroup();
+
+	L.geoJson(marylandStateBoundary, {
+		style: function (feature) {
+			return {
+			"color": "#0074FF",
+			"weight": 5
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup("County:" + feature.properties.COUNTY + "<br>" + "District:" + feature.properties.DISTRICT);
+	  } 
+}).addTo(maryland)	
+
+
+// SHA Facilities
+var maintIcon = L.icon({
+		iconUrl: 'images/SHA/Maint.png',
+		shadowUrl: 'images/markers/shadow.png',
+		iconSize: [30, 30],
+		iconAnchor: [12, 28],
+		popupAnchor: [0, -25],
+		labelAnchor: [6, -12]
+		});
+		
+var testIcon = L.icon({
+		iconUrl: 'images/SHA/Headquarters.png',
+		shadowUrl: 'images/markers/shadow.png',
+		iconSize: [30, 30],
+		iconAnchor: [12, 28],
+		popupAnchor: [0, -25],
+		labelAnchor: [6, -12]
+		});
+var restIcon = L.icon({
+		iconUrl: 'images/SHA/Rest.png',
+		shadowUrl: 'images/markers/shadow.png',
+		iconSize: [30, 30],
+		iconAnchor: [12, 28],
+		popupAnchor: [0, -25],
+		labelAnchor: [6, -12]
+		});
+		
+var weightIcon = L.icon({
+		iconUrl: 'images/SHA/Weight.png',
+		shadowUrl: 'images/markers/shadow.png',
+		iconSize: [30, 30],
+		iconAnchor: [12, 28],
+		popupAnchor: [0, -25],
+		labelAnchor: [6, -12]
+		});	
+var bridgeIcon = L.icon({
+		iconUrl: 'images/SHA/Bridge.png',
+		shadowUrl: 'images/markers/shadow.png',
+		iconSize: [30, 30],
+		iconAnchor: [12, 28],
+		popupAnchor: [0, -25],
+		labelAnchor: [6, -12]
+		});
+		
+var commIcon = L.icon({
+		iconUrl: 'images/SHA/Communications.png',
+		shadowUrl: 'images/markers/shadow.png',
+		iconSize: [30, 30],
+		iconAnchor: [12, 28],
+		popupAnchor: [0, -25],
+		labelAnchor: [6, -12]
+		});
+var labIcon = L.icon({
+		iconUrl: 'images/SHA/Lab.png',
+		shadowUrl: 'images/markers/shadow.png',
+		iconSize: [30, 30],
+		iconAnchor: [12, 28],
+		popupAnchor: [0, -25],
+		labelAnchor: [6, -12]
+		});
+		
+var saltIcon = L.icon({
+		iconUrl: 'images/SHA/Salt.png',
+		shadowUrl: 'images/markers/shadow.png',
+		iconSize: [30, 30],
+		iconAnchor: [12, 28],
+		popupAnchor: [0, -25],
+		labelAnchor: [6, -12]
+		});	
+var sateIcon = L.icon({
+		iconUrl: 'images/SHA/Sate.png',
+		shadowUrl: 'images/markers/shadow.png',
+		iconSize: [30, 30],
+		iconAnchor: [12, 28],
+		popupAnchor: [0, -25],
+		labelAnchor: [6, -12]
+		});	
+		
+		
+	var buildings = new L.LayerGroup();
+
+      L.geoJson(facilities, {
+        pointToLayer: function (feature, latlng) {
+		if (feature.properties.FAC_TYPE == "Maintenance")
+          return L.marker(latlng, {
+            icon: maintIcon
+		});
+		else if (feature.properties.FAC_TYPE == "Administrative")
+			return L.marker(latlng, {
+			icon: testIcon
+		});
+		else if (feature.properties.FAC_TYPE == "Rest Area")
+			return L.marker(latlng, {
+			icon: restIcon
+		});
+		else if (feature.properties.FAC_TYPE == "Communcations")
+			return L.marker(latlng, {
+			icon: commIcon
+		});
+		else if (feature.properties.FAC_TYPE == "Laboratory")
+			return L.marker(latlng, {
+			icon: labIcon
+		});
+		else if (feature.properties.FAC_TYPE == "Movable Bridge")
+			return L.marker(latlng, {
+			icon: bridgeIcon
+		});
+		else if (feature.properties.FAC_TYPE == "Salt Storage")
+			return L.marker(latlng, {
+			icon: saltIcon
+		});
+		else if (feature.properties.FAC_TYPE == "Satellite")
+			return L.marker(latlng, {
+			icon: sateIcon
+		});
+		else if (feature.properties.FAC_TYPE == "Weigh Station")
+			return L.marker(latlng, {
+			icon: weightIcon
+		});
+        },
+		onEachFeature: function (feature, layer) {
+          if (feature.properties) {
+			var content = '<p><b>' + feature.properties.FACILITY + '</b></p>' + 
+				'<p><b>' + feature.properties.FAC_TYPE + '</b></p>';
+			layer.bindPopup(content);
+			}
+		}
+	}).addTo(buildings)
+
+//var critical = new L.LayerGroup();
+
+//L.geoJson(criticalareas, {
+//   style: function (feature) {
+//       return {
+//         stroke: true,
+//         color: "yellow", 
+//         weight: 5};
+//   },
+//   onEachFeature: function (feature, layer) {
+//       layer.bindPopup("Type: " + feature.properties.Type +"<br>"+
+//                        "Location: " + feature.properties.Location +"<br>"+ "WebLink: " + feature.properties.WebLink +"<br>"+
+//                        "CritArea: " + feature.properties.CritArea); 
+//   }
+//}).addTo(critical);
+
+
+//Traffic Barriers
+//	var BarrierIcon = L.icon({
+//		iconUrl: 'images/markers/orange.png',
+//		shadowUrl: 'images/markers/shadow.png',
+//		iconSize: [12, 20],
+//		iconAnchor: [12, 28],
+//		popupAnchor: [0, -25],
+//		labelAnchor: [6, -12]
+//		});
+//	
+//	var barriers = new L.LayerGroup();
+//
+//      L.geoJson(barrier, {
+//        pointToLayer: function (feature, latlng) {
+//          return L.marker(latlng, {
+//            icon: BarrierIcon
+//          });
+//        },
+//		onEachFeature: function (feature, layer) {
+//          if (feature.properties) {
+//			var content = '<p>' + feature.properties.Name + '</p>' + 
+//				'<p>' + feature.properties.description + '</p>';
+//			layer.bindPopup(content);
+//			}
+//		}
+//	}).addTo(barriers)
+	
+
+//*******************************************************************Project Limits******************************************************************************************************************
+
+var limits1 = new L.LayerGroup();
+
+	L.geoJson(AAprojectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#FF0000",
+			"weight": 5
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(limits1)	
+
+var limits2 = new L.LayerGroup();
+
+	L.geoJson(BA637projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#FFB200",
+			"weight": 5
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(limits2)	
+
+var limits3 = new L.LayerGroup();
+
+	L.geoJson(projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#51FF00",
+			"weight": 5
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(limits3)	
+
+var limits4 = new L.LayerGroup();
+
+	L.geoJson(HO245projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#0061FF",
+			"weight": 5
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(limits4)	
+
+var limits5 = new L.LayerGroup();
+
+	L.geoJson(MO384projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#8B00FF",
+			"weight": 5
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(limits5)	
+
+var limits6 = new L.LayerGroup();
+
+	L.geoJson(PG402projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#FF00D8",
+			"weight": 5
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(limits6)	
+
+var limits7 = new L.LayerGroup();
+
+	L.geoJson(WA255projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#000000",
+			"weight": 5
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(limits7)	
+
+
+
+
+
+
+// COMPLETED PROJECTS****************************************************************************************************************
+
+//AT0625124
+
+var  completed1 = new L.LayerGroup();
+
+	L.geoJson(aT0625124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#FF0000",
+			"weight": 4
+		}	
+	  },
+	  onEachFeature: function (feature, layer) {
+          if (feature.properties) {
+			var content = '<p>' + feature.properties.OBJECTID + '</p>' + 
+				'<p>' + "<h4><a href=\"" + feature.properties.Contract_N + "\" target=\"_blank\">" + feature.properties.SHAPE_Leng + "</a></h4>" + '</p>';
+			layer.bindPopup(content);
+			}
+		}
+	}).addTo(completed1)
+
+//AT0645124
+
+var  completed2 = new L.LayerGroup();
+
+	L.geoJson(AT0645124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#FF0000",
+			"weight": 4
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(completed2)	
+
+//AT0825124
+
+var  completed3 = new L.LayerGroup();
+
+	L.geoJson(AT0825124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#FF0000",
+			"weight": 4
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(completed3)
+	
+//AT0835124
+
+var  completed4 = new L.LayerGroup();
+
+	L.geoJson(AT0835124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#FF0000",
+			"weight": 4
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(completed4)
+	
+//AX0705124
+
+var  completed5 = new L.LayerGroup();
+
+	L.geoJson(AX0705124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#FF0000",
+			"weight": 4
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(completed5)
+	
+//AX0715124
+
+var  completed6 = new L.LayerGroup();
+
+	L.geoJson(AX0715124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#FF0000",
+			"weight": 4
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(completed6)
+	
+//AX0725124
+
+var  completed7 = new L.LayerGroup();
+
+	L.geoJson(AX0725124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#FF0000",
+			"weight": 4
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(completed7)	
+
+//AX0795124SBR
+
+var  completed8 = new L.LayerGroup();
+
+	L.geoJson(AX0795124SBRprojectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#FF0000",
+			"weight": 4
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(completed8)
+	
+//AX6205124
+
+var  completed9 = new L.LayerGroup();
+
+	L.geoJson(AX6205124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#FF0000",
+			"weight": 4
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(completed9)
+	
+//PG7455168
+
+var  completed10 = new L.LayerGroup();
+
+	L.geoJson(PG7455168projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#FF0000",
+			"weight": 4
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(completed10)
+	
+//WI2305124
+
+var  completed11 = new L.LayerGroup();
+
+	L.geoJson(WI2305124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#FF0000",
+			"weight": 4
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(completed11)		
+	
+// Active Projects************************************************************************************************************************
+
+//AA1745124
+
+var  active1 = new L.LayerGroup();
+
+	L.geoJson(AA1745124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#0008FF",
+			"weight": 6
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(active1)
+
+//AT0615124
+
+var  active2 = new L.LayerGroup();
+
+	L.geoJson(AT0615124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#0008FF",
+			"weight": 6
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(active2)
+
+//AX0076114
+
+var  active3 = new L.LayerGroup();
+
+	L.geoJson(AX0076114projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#0008FF",
+			"weight": 6
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(active3)
+
+//AX0805124
+
+var  active4 = new L.LayerGroup();
+
+	L.geoJson(AX0805124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#0008FF",
+			"weight": 6
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(active4)
+
+//BA7115224
+
+var  active5 = new L.LayerGroup();
+
+	L.geoJson(BA7115224projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#0008FF",
+			"weight": 6
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(active5)
+
+//MO3845224
+
+var  active6 = new L.LayerGroup();
+
+	L.geoJson(MO3845224projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#0008FF",
+			"weight": 6
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(active6)
+
+//PG9595124
+
+var  active7 = new L.LayerGroup();
+
+	L.geoJson(PG9595124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#0008FF",
+			"weight": 6
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(active7)
+
+//In-Design Projects**********************************************************************************************************************
+
+//AA1755124
+
+var  design1 = new L.LayerGroup();
+
+	L.geoJson(AA1755124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#59FF00",
+			"weight": 8
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(design1)
+
+//BA4475124
+
+var  design2 = new L.LayerGroup();
+
+	L.geoJson(BA4475124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#59FF00",
+			"weight": 8
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(design2)
+
+//BA6375324
+
+var  design3 = new L.LayerGroup();
+
+	L.geoJson(BA6375324projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#59FF00",
+			"weight": 8
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(design3)
+
+//HO2455124
+
+var  design4 = new L.LayerGroup();
+
+	L.geoJson(HO2455124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#59FF00",
+			"weight": 8
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(design4)
+
+//MO6455224
+
+var  design5 = new L.LayerGroup();
+
+	L.geoJson(MO6455224projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#59FF00",
+			"weight": 8
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(design5)
+
+//PG4025324
+
+var  design6 = new L.LayerGroup();
+
+	L.geoJson(PG4025324projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#59FF00",
+			"weight": 8
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(design6)
+
+//PG4045224
+
+var  design7 = new L.LayerGroup();
+
+	L.geoJson(PG4045224projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#59FF00",
+			"weight": 8
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(design7)
+
+//PG4045324
+
+var  design8 = new L.LayerGroup();
+
+	L.geoJson(PG4045324projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#59FF00",
+			"weight": 8
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(design8)
+
+//WA2555124
+
+var  design9 = new L.LayerGroup();
+
+	L.geoJson(WA2555124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#59FF00",
+			"weight": 8
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(design9)
+
+//WA2595124
+
+var  design10 = new L.LayerGroup();
+
+	L.geoJson(WA2595124projectlimits, {
+		style: function (feature) {
+			return {
+			"color": "#59FF00",
+			"weight": 8
+		}
+	  },
+	  onEachFeature: function(feature, layer) {
+		layer.bindPopup(feature.properties.Type);
+	  } 
+}).addTo(design10)
+	
+//***************************************************LAYER CONTROL BOX***********************************************************************************	
+//  Basemaps
+	var baseMaps = [
+					{
+						groupName : "Basemaps",
+						expanded : true,
+						layers	:{
+							"OpenStreet": OpenStreetMap_Mapnik,
+							"OpenStreet Surfer": OpenMapSurfer_Roads,
+							"Google Maps": Google,
+							"Mapbox Streets": Map_Box,
+							"Mapbox Satellite": MapboxSatellite,
+							"Esri World Imagery": Esri_WorldImagery,
+							"OpenStreet Black and White": OpenStreetMap_BlackAndWhite,
+							"Topography Map": OpenTopoMap
+							}
+						}
+	];
+
+//  Overlay Maps
+	var overlayMaps = [
+						{	
+							groupName: "Project Limits",
+							expanded : false,
+							layers   : {
+//Project Limits
+								"AA174": limits1,
+								"BA637": limits2,
+								"BA711": limits3,
+								"HO245": limits4,
+								"MO384": limits5,
+								"PG402": limits6,
+								"WA255": limits7								
+							}
+						},	{
+//							groupName: "Completed Projects",
+//							expanded : false,
+//							layers   : {
+//Completed
+//								"AT0625124": completed1,
+//								"AT0645124": completed2,
+//								"AT0825124": completed3,
+//								"AT0835124": completed4,
+//								"AX0705124": completed5,
+//								"AX0715124": completed6,
+//								"AX0725124": completed7,
+//								"AX0795124SBR": completed8,
+//								"AX6205124": completed9,
+//								"PG7455168": completed10,
+//								"WI2305124": completed11
+//							}
+//						},	{
+//							groupName: "Active Projects",
+//							expanded : false,
+//							layers   : {
+//Active
+//								"AA1745124": active1,
+//								"AT0615124": active2,
+//								"AX0076114": active3,
+//								"AX0805124": active4,
+//								"BA7115224": active5,
+//								"MO3845224": active6,
+//								"PG9595124": active7
+//							}
+//						},	{
+//							groupName: "In-Design Projects",
+//							expanded : false,
+//							layers   : {
+//In-Design
+//								"AA1755124": design1,
+//								"BA4475124": design2,
+//								"BA6375324": design3,
+//								"HO2455124": design4,
+//								"MO6455224": design5,
+//								"PG4025324": design6,
+//								"PG4045224": design7,
+//								"PG4045324": design8,
+//								"WA2555124": design9,
+//								"WA2595124": design10
+//							}
+//						},	{
+							groupName:	"Extra",
+							expanded :	false,
+							layers   :	{
+//Add-Ons
+//								"OpenWeatherMap Temperature": temperature,
+//								"Major Roads": majorroads,
+								"Maryland County Boundaries": maryland,
+//								"DNR Critical Areas": critical,
+								"SHA Facilities": buildings,
+								"National Land Cover(2015)": landcover,
+//								"Traffic Barriers": barriers
+							}
+						}
+	];
+
+	
+	
+	
+	
+//------------------------------------------------------------START MAP FUNCTIONS,TOOLS,& CONTROLS------------------------------------------------------------------------------------------
+
+
+// ~START LAYER CONTROL TOOLBAR~
+
+//  Layer Control
+var control = L.Control.styledLayerControl(baseMaps, overlayMaps);
+    map.addControl(control);
+
+// ~END LAYER CONTROL TOOLBAR~
+
+
+// ~START NAVIGATION TOOLBAR~
+
+//Leaflet Navigation Bar ()
+	L.control.navbar().addTo(map);
+
+// ~END NAVIGATION TOOLBAR~
+
+
+// ~START SCALE TOOLBAR~
+
+// Display Scale Control
+var scaleControl = new L.control.scale({
+	position: 'bottomleft'
+	});
+
+// ~END SCALE TOOLBAR~
+
+
+// ~START MINI MAP TOOLBAR~
+
+// Mini Map
+	var osm2 = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {minZoom: 0, maxZoom: 13, attribution: 'Map data &copy; OpenStreetMap contributors'});
+	var miniMap = new L.Control.MiniMap(osm2).addTo(map);
+	
+// ~END MINI MAP TOOLBAR~
+
+L.browserPrint().addTo(map)
+
+
+// ~START MOUSE COORDINATES TOOLBAR~
+	
+// Display mouse coordinates
+var mouseControl = new L.control.coordinates({
+	position:"bottomleft",
+	decimals:6,
+	decimalSeperator:",",
+	labelTemplateLat:"Latitude: {y}",
+	labelTemplateLng:"Longitude: {x}"
+    });
+
+	map.addControl(mouseControl);
+	map.addControl(scaleControl);
+	
+// ~END MOUSE COORDINATES TOOLBAR~
+
+
+// ~START CREDITS TOOLBAR~
+	
+//Credits
+var credctrl = L.controlCredits({
+	position: "bottomleft",
+    image: "images/markers/sha.png",
+    link: "http://www.roads.maryland.gov/Index.aspx?PageId=114",
+    text: "Interactive Mapping<br/>by Luis Resh"
+}).addTo(map);
+
+// ~END CREDITS TOOLBAR~
+
+
+// ~START GEOCODER TOOLBAR~
+
+//Geocoder
+
+L.Control.geocoder({
+	position: "topleft"
+}).addTo(map);
+	
+// ~END GEOCODER TOOLBAR~
+
+
+// ~START MEASURING TOOLBAR~
+
+//Measuring Tool	
+var measureControl = new L.Control.Measure(options);
+measureControl.addTo(map);
+
+// ~END MEASURING TOOLBAR~
+
+
+// ~START Export TOOLBAR~
+	
+	// define toolbar options
+     
+     
+		
+// ~END Export TOOLBAR~	
+
+
+// ~START BOOKMARK TOOL~
+
+var control = new L.Control.Bookmarks().addTo(map);
+
+// ~END BOOKMARK TOOL~
+
+
+
+
+
+
+
+
+
+
+
+//    drawnItems = L.featureGroup().addTo(map);
+			
+//    map.addControl(new L.Control.Draw({
+//        edit: {
+//            featureGroup: drawnItems,
+//            poly: {
+//                allowIntersection: false
+//            }
+//        },
+//        draw: {
+//            polygon: {
+//                allowIntersection: false,
+//                showArea: true
+//            }
+//        }
+//    }));
+
+//    map.on(L.Draw.Event.CREATED, function (event) {
+//        var layer = event.layer;
+
+//        drawnItems.addLayer(layer);
+//    });
+
+var featureGroup = L.featureGroup().addTo(map);
+
+        var drawControl = new L.Control.Draw({
+            edit: {
+                featureGroup: featureGroup
+            }
+        }).addTo(map);
+
+        map.on('draw:created', function(e) {
+
+            // Each time a feaute is created, it's added to the over arching feature group
+            featureGroup.addLayer(e.layer);
+        });	
+	
+document.getElementById('export').onclick = function(e) {
+            // Extract GeoJson from featureGroup
+            var data = featureGroup.toGeoJSON();
+
+            // Stringify the GeoJson
+            var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+
+            // Create export
+            document.getElementById('export').setAttribute('href', 'data:' + convertedData);
+            document.getElementById('export').setAttribute('download','data.geojson');
+			
+		
+        }
+
+	
+
+//----------------------------------------------------------END MAP FUNCTIONS,TOOLS,& CONTROLS----------------------------------------------------------------------------------	
+
+
+
+L.geoJson(AAprojectlimits, {
+   style: function (feature) {
+       return {
+         stroke: true,
+         color: "red", 
+         weight: 5};
+   },
+   onEachFeature: function (feature, layer) {
+       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
+                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
+						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
+   }
+}).addTo(limits1);
+
+L.geoJson(BA637projectlimits, {
+   style: function (feature) {
+       return {
+         stroke: true,
+         color: "black", 
+         weight: 5};
+   },
+   onEachFeature: function (feature, layer) {
+       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
+                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
+						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
+   }
+}).addTo(limits2);
+
+L.geoJson(projectlimits, {
+   style: function (feature) {
+       return {
+         stroke: true,
+         color: "purple", 
+         weight: 5};
+   },
+   onEachFeature: function (feature, layer) {
+       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
+                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
+						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
+   }
+}).addTo(limits3);
+
+L.geoJson(HO245projectlimits, {
+   style: function (feature) {
+       return {
+         stroke: true,
+         color: "blue", 
+         weight: 5};
+   },
+   onEachFeature: function (feature, layer) {
+       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
+                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
+						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
+   }
+}).addTo(limits4);
+
+L.geoJson(MO384projectlimits, {
+   style: function (feature) {
+       return {
+         stroke: true,
+         color: "orange", 
+         weight: 5};
+   },
+   onEachFeature: function (feature, layer) {
+       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
+                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
+						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
+   }
+}).addTo(limits5);
+
+L.geoJson(PG402projectlimits, {
+   style: function (feature) {
+       return {
+         stroke: true,
+         color: "yellow", 
+         weight: 5};
+   },
+   onEachFeature: function (feature, layer) {
+       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
+                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
+						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
+   }
+}).addTo(limits6);
+
+L.geoJson(WA255projectlimits, {
+   style: function (feature) {
+       return {
+         stroke: true,
+         color: "green", 
+         weight: 5};
+   },
+   onEachFeature: function (feature, layer) {
+       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
+                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
+						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
+   }
+}).addTo(limits7);
+
+
+
+
+var popup = L.popup()
+    .setLatLng([39.323438, -76.609383])
+    .setContent('<b>Change and add layers using the tool in top right corner.</b>')
+    .openOn(map);
+
+
+
+
+
+</script>
+
+</body>
+
+</html>
