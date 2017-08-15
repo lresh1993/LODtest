@@ -925,10 +925,7 @@ document.getElementById('export').onclick = function(e) {
             var data = featureGroup.toGeoJSON();
 
             // Stringify the GeoJson
-            var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
-			
-			// then export to kml
-			var kml = tokml(convertedData);		
+            var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));	
 
             // Create export
             document.getElementById('export').setAttribute('href', 'data:' + convertedData);
