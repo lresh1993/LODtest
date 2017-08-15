@@ -20,6 +20,8 @@
 <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="crossorigin=""></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet-easybutton@2.0.0/src/easy-button.css">
 <script src="https://unpkg.com/leaflet-easybutton@2.0.0/src/easy-button.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- *******************DO NOT REMOVE***************** -->
 
 
@@ -44,6 +46,7 @@
 <link rel="stylesheet" href="css/easy-button.css" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+
 <!-- End CSS Data Load -->
 
 
@@ -55,13 +58,16 @@
 <script src="https://cdn.jsdelivr.net/leaflet.esri/2.0.0/esri-leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/leaflet.esri.gp/2.0.0/esri-leaflet-gp.js"></script>
 <script src="https://cdn.jsdelivr.net/leaflet.esri.geocoder/2.0.2/esri-leaflet-geocoder.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
 <script type="text/javascript" src="scripts/L.Control.Locate.js"></script>
 <script type="text/javascript" src="scripts/TileLayer.WMTS.js"></script>
 <script type="text/javascript" src="scripts/leaflet-tilelayer-wmts.js"></script>
 <script type="text/javascript" src="scripts/Leaflet.Coordinates-0.1.5.js"></script>
 <script type="text/javascript" src="scripts/Leaflet.NavBar.js"></script>
 <script type="text/javascript" src="scripts/Control.MiniMap.js"></script>
-<script type="text/javascript" src="scripts/Control.OSMGeocoder.js"></script> 
+<script type="text/javascript" src="scripts/Control.OSMGeocoder.js"></script>
+<script type="text/javascript" src="scripts/catiline.js"></script>
+<script type="text/javascript" src="scripts/catiline.js"></script> 
 <script type="text/javascript" src="scripts/leaflet.fgdb.js"></script> 
 <script type="text/javascript" src="scripts/leaflet-control-credits.js"></script>
 <script type="text/javascript" src="scripts/styledLayerControl.js"></script>
@@ -107,6 +113,7 @@
 <script type="text/javascript" src="scripts/easy-button.js"></script>
 <script type="text/javascript" src="scripts/d3.v3.min.js"></script>
 <script type="text/javascript" src="scripts/metatable.js"></script>
+
 <!-- End Scripts Data Load -->
 
 
@@ -119,50 +126,24 @@
 <script type="text/javascript" src="data/ProjectLimits/MO384.txt"></script>
 <script type="text/javascript" src="data/ProjectLimits/PG402.txt"></script>
 <script type="text/javascript" src="data/ProjectLimits/WA255.txt"></script>
-<script type="text/javascript" src="data/Completed/AT0625124.txt"></script>
-<script type="text/javascript" src="data/Completed/AT0645124.txt"></script>
-<script type="text/javascript" src="data/Completed/AT0825124.txt"></script>
-<script type="text/javascript" src="data/Completed/AT0835124.txt"></script>
-<script type="text/javascript" src="data/Completed/AX0705124.txt"></script>
-<script type="text/javascript" src="data/Completed/AX0715124.txt"></script>
-<script type="text/javascript" src="data/Completed/AX0725124.txt"></script>
-<script type="text/javascript" src="data/Completed/AX0795124SBR.txt"></script>
-<script type="text/javascript" src="data/Completed/AX6205124.txt"></script>
-<script type="text/javascript" src="data/Completed/PG7455168.txt"></script>
-<script type="text/javascript" src="data/Completed/WI2305124.txt"></script>
-<script type="text/javascript" src="data/Active/AA1745124.txt"></script>
-<script type="text/javascript" src="data/Active/AT0615124.txt"></script>
-<script type="text/javascript" src="data/Active/AX0076114.txt"></script>
-<script type="text/javascript" src="data/Active/AX0805124.txt"></script>
-<script type="text/javascript" src="data/Active/BA7115224.txt"></script>
-<script type="text/javascript" src="data/Active/MO3845224.txt"></script>
-<script type="text/javascript" src="data/Active/PG9595124.txt"></script>
-<script type="text/javascript" src="data/In-Design/AA1755124.txt"></script>
-<script type="text/javascript" src="data/In-Design/BA4475124.txt"></script>
-<script type="text/javascript" src="data/In-Design/BA6375324.txt"></script>
-<script type="text/javascript" src="data/In-Design/HO2455124.txt"></script>
-<script type="text/javascript" src="data/In-Design/MO6455224.txt"></script>
-<script type="text/javascript" src="data/In-Design/PG4025324.txt"></script>
-<script type="text/javascript" src="data/In-Design/PG4045224.txt"></script>
-<script type="text/javascript" src="data/In-Design/PG4045324.txt"></script>
-<script type="text/javascript" src="data/In-Design/WA2555124.txt"></script>
-<script type="text/javascript" src="data/In-Design/WA2595124.txt"></script>
 <script type="text/javascript" src="data/Extra/maryland.txt"></script>
+<script type="text/javascript" src="data/Extra/DNR_Critical.txt"></script>
 <script type="text/javascript" src="data/Extra/SHAfacilities.txt"></script>
-<script type="text/javascript" src="data/Extra/trafficbarriers.txt"></script>
 
 <!-- End GeoJSON Data Load -->
 
 	<style>
+	
         body {
             margin: 0;
             padding: 0;
         }
         #map {
             position: absolute;
-            top: 6.8%;
+            top: 6.5%;
             bottom: 0;
             width: 100%;
+			z-index: 0;
         }
         #export {
 			position: absolute;
@@ -176,6 +157,7 @@
 			font-size: 16px;
 			top:0.5%;
 			right:4.5px;
+			z-index: 2;
         }
 		.myButton {
 			-moz-box-shadow:inset 0px 1px 0px 0px #9acc85;
@@ -216,9 +198,13 @@
 		body {margin:0;}
 
 		.topnav {
+			position: fixed;
+			left: 0px;
+			right: 0px;
 			overflow: hidden;
 			background-color: #333;
 			border: 2.5px solid gray;
+			z-index: 1;
 		}
 
 		.topnav a {
@@ -239,28 +225,139 @@
 		.topnav a.active {
 			background-color: #4CAF50;
 			color: white;
-	}
+		}
+		.info {
+			background-color:#ffffff;
+			-moz-border-radius:34px;
+			-webkit-border-radius:34px;
+			border-radius:34px;
+			border:3px solid #adadad;
+			display:inline-block;
+			cursor:pointer;
+			color:#000000;
+			font-family:Times New Roman;
+			font-size:20px;
+			font-style:italic;
+			padding:8px 16px;
+			text-decoration:none;
+			text-shadow:0px 0px 0px #0e3309;
+		}
+		.info:hover {
+			background-color:#ffffff;
+		}
+		.info:active {
+			position:relative;
+			top:0px;
+		}
+
+		#help {
+			position: absolute;
+            background-color: white;
+			border:2px solid gray;
+			color: black;
+			padding: 3px 15px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			top: 1.5%;
+			right: 215px;
+			z-index: 2;
+        }
+		/* The Modal (background) */
+		.modal {
+			display: none; /* Hidden by default */
+			position: fixed; /* Stay in place */
+			z-index: 1; /* Sit on top */
+			padding-top: 100px; /* Location of the box */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto; /* Enable scroll if needed */
+			background-color: rgb(0,0,0); /* Fallback color */
+			background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+
+		/* Modal Content */
+		.modal-content {
+			position: relative;
+			background-color: #fefefe;
+			margin: auto;
+			padding: 0;
+			border: 1px solid #888;
+			width: 80%;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+			-webkit-animation-name: animatetop;
+			-webkit-animation-duration: 0.4s;
+			animation-name: animatetop;
+			animation-duration: 0.4s
+		}
+
+		/* Add Animation */
+		@-webkit-keyframes animatetop {
+			from {top:-300px; opacity:0} 
+			to {top:0; opacity:1}
+		}
+
+		@keyframes animatetop {
+			from {top:-300px; opacity:0}
+			to {top:0; opacity:1}
+		}
+
+		/* The Close Button */
+		.close {
+			color: white;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.modal-header {
+			padding: 2px 16px;
+			background-color: #5cb85c;
+			color: white;
+		}
+
+		.modal-body {padding: 2px 16px;}
 
 	</style>
 </head>
 
 <body>
 
-
 <div id='map'></div>
 <a href='#' class="myButton" id='export'>Export Features</a>
+<a href="#" class="info" id='help'>i</a>
 <div class="topnav" id="myTopnav">
-  <a href="http://shaintranet/oed/default.aspx">Landscape Operations IRVM Web Application</a>
+<a href="http://shaintranet/oed/default.aspx">Landscape Operations IRVM Web Application</a>
 </div>
-
-
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2><b>Exporting Features</b></h2>
+    </div>
+    <div class="modal-body">
+      <p>This web application exports drawn features in a geojson format. Future updates will hopefully allow downloads into other data types. <b>***</b>Note that features created using the measuring tool will not be extracted from export.<b>***</b></p>
+      <p style="font-size:150%;">In order to convert .json files to .KMZ files, use <a href="http://geojson.io/#map=2/20.0/0.0">GeoJson.io</a>.</p>
+    </div>
+   </div>
 
 <script>
 
 // initialize map
 var map = L.map('map').setView([39.306675, -76.621742], 12);
-map.options.minZoom = 8;
-map.options.maxZoom = 20;
+		map.options.minZoom = 8;
+		map.options.maxZoom = 20;
 
 // ***********************************************************BASEMAPS **********************************************************************
 
@@ -350,7 +447,7 @@ var OpenStreetMap_BlackAndWhite = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-m
 });
 
 	
-// **********************************************************EXTRAS***********************************************************************
+// **********************************************************OVERLAY LAYERS***********************************************************************
 var maryland = new L.LayerGroup();
 
 	L.geoJson(marylandStateBoundary, {
@@ -361,7 +458,7 @@ var maryland = new L.LayerGroup();
 		}
 	  },
 	  onEachFeature: function(feature, layer) {
-		layer.bindPopup("County:" + feature.properties.COUNTY + "<br>" + "District:" + feature.properties.DISTRICT);
+		layer.bindPopup("<b>County: </b>" + feature.properties.COUNTY + "<br>" + "<b>District: </b>" + feature.properties.DISTRICT);
 	  } 
 }).addTo(maryland)	
 
@@ -511,597 +608,117 @@ var sateIcon = L.icon({
 //   }
 //}).addTo(critical);
 
-
-//Traffic Barriers
-//	var BarrierIcon = L.icon({
-//		iconUrl: 'images/markers/orange.png',
-//		shadowUrl: 'images/markers/shadow.png',
-//		iconSize: [12, 20],
-//		iconAnchor: [12, 28],
-//		popupAnchor: [0, -25],
-//		labelAnchor: [6, -12]
-//		});
-//	
-//	var barriers = new L.LayerGroup();
-//
-//      L.geoJson(barrier, {
-//        pointToLayer: function (feature, latlng) {
-//          return L.marker(latlng, {
-//            icon: BarrierIcon
-//          });
-//        },
-//		onEachFeature: function (feature, layer) {
-//          if (feature.properties) {
-//			var content = '<p>' + feature.properties.Name + '</p>' + 
-//				'<p>' + feature.properties.description + '</p>';
-//			layer.bindPopup(content);
-//			}
-//		}
-//	}).addTo(barriers)
-	
-
-//*******************************************************************Project Limits******************************************************************************************************************
-
 var limits1 = new L.LayerGroup();
 
-	L.geoJson(AAprojectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#FF0000",
-			"weight": 5
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(limits1)	
+L.geoJson(AAprojectlimits, {
+   style: function (feature) {
+       return {
+         stroke: true,
+         color: "red", 
+         weight: 5};
+   },
+   onEachFeature: function (feature, layer) {
+       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
+                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
+						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
+   }
+}).addTo(limits1);
 
 var limits2 = new L.LayerGroup();
 
-	L.geoJson(BA637projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#FFB200",
-			"weight": 5
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(limits2)	
+L.geoJson(BA637projectlimits, {
+   style: function (feature) {
+       return {
+         stroke: true,
+         color: "black", 
+         weight: 5};
+   },
+   onEachFeature: function (feature, layer) {
+       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
+                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
+						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
+   }
+}).addTo(limits2);
 
 var limits3 = new L.LayerGroup();
 
-	L.geoJson(projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#51FF00",
-			"weight": 5
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(limits3)	
+L.geoJson(projectlimits, {
+   style: function (feature) {
+       return {
+         stroke: true,
+         color: "purple", 
+         weight: 5};
+   },
+   onEachFeature: function (feature, layer) {
+       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
+                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
+						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
+   }
+}).addTo(limits3);
 
 var limits4 = new L.LayerGroup();
 
-	L.geoJson(HO245projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#0061FF",
-			"weight": 5
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(limits4)	
+L.geoJson(HO245projectlimits, {
+   style: function (feature) {
+       return {
+         stroke: true,
+         color: "blue", 
+         weight: 5};
+   },
+   onEachFeature: function (feature, layer) {
+       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
+                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
+						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
+   }
+}).addTo(limits4);
 
 var limits5 = new L.LayerGroup();
 
-	L.geoJson(MO384projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#8B00FF",
-			"weight": 5
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(limits5)	
+L.geoJson(MO384projectlimits, {
+   style: function (feature) {
+       return {
+         stroke: true,
+         color: "orange", 
+         weight: 5};
+   },
+   onEachFeature: function (feature, layer) {
+       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
+                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
+						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
+   }
+}).addTo(limits5);
 
 var limits6 = new L.LayerGroup();
 
-	L.geoJson(PG402projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#FF00D8",
-			"weight": 5
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(limits6)	
+L.geoJson(PG402projectlimits, {
+   style: function (feature) {
+       return {
+         stroke: true,
+         color: "yellow", 
+         weight: 5};
+   },
+   onEachFeature: function (feature, layer) {
+       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
+                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
+						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
+   }
+}).addTo(limits6);
 
 var limits7 = new L.LayerGroup();
 
-	L.geoJson(WA255projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#000000",
-			"weight": 5
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(limits7)	
-
-
-
-
-
-
-// COMPLETED PROJECTS****************************************************************************************************************
-
-//AT0625124
-
-var  completed1 = new L.LayerGroup();
-
-	L.geoJson(aT0625124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#FF0000",
-			"weight": 4
-		}	
-	  },
-	  onEachFeature: function (feature, layer) {
-          if (feature.properties) {
-			var content = '<p>' + feature.properties.OBJECTID + '</p>' + 
-				'<p>' + "<h4><a href=\"" + feature.properties.Contract_N + "\" target=\"_blank\">" + feature.properties.SHAPE_Leng + "</a></h4>" + '</p>';
-			layer.bindPopup(content);
-			}
-		}
-	}).addTo(completed1)
-
-//AT0645124
-
-var  completed2 = new L.LayerGroup();
-
-	L.geoJson(AT0645124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#FF0000",
-			"weight": 4
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(completed2)	
-
-//AT0825124
-
-var  completed3 = new L.LayerGroup();
-
-	L.geoJson(AT0825124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#FF0000",
-			"weight": 4
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(completed3)
-	
-//AT0835124
-
-var  completed4 = new L.LayerGroup();
-
-	L.geoJson(AT0835124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#FF0000",
-			"weight": 4
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(completed4)
-	
-//AX0705124
-
-var  completed5 = new L.LayerGroup();
-
-	L.geoJson(AX0705124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#FF0000",
-			"weight": 4
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(completed5)
-	
-//AX0715124
-
-var  completed6 = new L.LayerGroup();
-
-	L.geoJson(AX0715124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#FF0000",
-			"weight": 4
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(completed6)
-	
-//AX0725124
-
-var  completed7 = new L.LayerGroup();
-
-	L.geoJson(AX0725124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#FF0000",
-			"weight": 4
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(completed7)	
-
-//AX0795124SBR
-
-var  completed8 = new L.LayerGroup();
-
-	L.geoJson(AX0795124SBRprojectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#FF0000",
-			"weight": 4
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(completed8)
-	
-//AX6205124
-
-var  completed9 = new L.LayerGroup();
-
-	L.geoJson(AX6205124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#FF0000",
-			"weight": 4
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(completed9)
-	
-//PG7455168
-
-var  completed10 = new L.LayerGroup();
-
-	L.geoJson(PG7455168projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#FF0000",
-			"weight": 4
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(completed10)
-	
-//WI2305124
-
-var  completed11 = new L.LayerGroup();
-
-	L.geoJson(WI2305124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#FF0000",
-			"weight": 4
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(completed11)		
-	
-// Active Projects************************************************************************************************************************
-
-//AA1745124
-
-var  active1 = new L.LayerGroup();
-
-	L.geoJson(AA1745124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#0008FF",
-			"weight": 6
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(active1)
-
-//AT0615124
-
-var  active2 = new L.LayerGroup();
-
-	L.geoJson(AT0615124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#0008FF",
-			"weight": 6
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(active2)
-
-//AX0076114
-
-var  active3 = new L.LayerGroup();
-
-	L.geoJson(AX0076114projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#0008FF",
-			"weight": 6
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(active3)
-
-//AX0805124
-
-var  active4 = new L.LayerGroup();
-
-	L.geoJson(AX0805124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#0008FF",
-			"weight": 6
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(active4)
-
-//BA7115224
-
-var  active5 = new L.LayerGroup();
-
-	L.geoJson(BA7115224projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#0008FF",
-			"weight": 6
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(active5)
-
-//MO3845224
-
-var  active6 = new L.LayerGroup();
-
-	L.geoJson(MO3845224projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#0008FF",
-			"weight": 6
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(active6)
-
-//PG9595124
-
-var  active7 = new L.LayerGroup();
-
-	L.geoJson(PG9595124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#0008FF",
-			"weight": 6
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(active7)
-
-//In-Design Projects**********************************************************************************************************************
-
-//AA1755124
-
-var  design1 = new L.LayerGroup();
-
-	L.geoJson(AA1755124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#59FF00",
-			"weight": 8
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(design1)
-
-//BA4475124
-
-var  design2 = new L.LayerGroup();
-
-	L.geoJson(BA4475124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#59FF00",
-			"weight": 8
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(design2)
-
-//BA6375324
-
-var  design3 = new L.LayerGroup();
-
-	L.geoJson(BA6375324projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#59FF00",
-			"weight": 8
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(design3)
-
-//HO2455124
-
-var  design4 = new L.LayerGroup();
-
-	L.geoJson(HO2455124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#59FF00",
-			"weight": 8
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(design4)
-
-//MO6455224
-
-var  design5 = new L.LayerGroup();
-
-	L.geoJson(MO6455224projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#59FF00",
-			"weight": 8
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(design5)
-
-//PG4025324
-
-var  design6 = new L.LayerGroup();
-
-	L.geoJson(PG4025324projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#59FF00",
-			"weight": 8
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(design6)
-
-//PG4045224
-
-var  design7 = new L.LayerGroup();
-
-	L.geoJson(PG4045224projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#59FF00",
-			"weight": 8
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(design7)
-
-//PG4045324
-
-var  design8 = new L.LayerGroup();
-
-	L.geoJson(PG4045324projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#59FF00",
-			"weight": 8
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(design8)
-
-//WA2555124
-
-var  design9 = new L.LayerGroup();
-
-	L.geoJson(WA2555124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#59FF00",
-			"weight": 8
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(design9)
-
-//WA2595124
-
-var  design10 = new L.LayerGroup();
-
-	L.geoJson(WA2595124projectlimits, {
-		style: function (feature) {
-			return {
-			"color": "#59FF00",
-			"weight": 8
-		}
-	  },
-	  onEachFeature: function(feature, layer) {
-		layer.bindPopup(feature.properties.Type);
-	  } 
-}).addTo(design10)
+L.geoJson(WA255projectlimits, {
+   style: function (feature) {
+       return {
+         stroke: true,
+         color: "green", 
+         weight: 5};
+   },
+   onEachFeature: function (feature, layer) {
+       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
+                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
+						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
+   }
+}).addTo(limits7);
 	
 //***************************************************LAYER CONTROL BOX***********************************************************************************	
 //  Basemaps
@@ -1200,51 +817,31 @@ var  design10 = new L.LayerGroup();
 	];
 
 	
-	
-	
-	
 //------------------------------------------------------------START MAP FUNCTIONS,TOOLS,& CONTROLS------------------------------------------------------------------------------------------
-
-
-// ~START LAYER CONTROL TOOLBAR~
 
 //  Layer Control
 var control = L.Control.styledLayerControl(baseMaps, overlayMaps);
     map.addControl(control);
 
-// ~END LAYER CONTROL TOOLBAR~
-
-
-// ~START NAVIGATION TOOLBAR~
 
 //Leaflet Navigation Bar ()
 	L.control.navbar().addTo(map);
 
-// ~END NAVIGATION TOOLBAR~
-
-
-// ~START SCALE TOOLBAR~
 
 // Display Scale Control
 var scaleControl = new L.control.scale({
 	position: 'bottomleft'
 	});
 
-// ~END SCALE TOOLBAR~
-
-
-// ~START MINI MAP TOOLBAR~
 
 // Mini Map
 	var osm2 = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {minZoom: 0, maxZoom: 13, attribution: 'Map data &copy; OpenStreetMap contributors'});
 	var miniMap = new L.Control.MiniMap(osm2).addTo(map);
 	
-// ~END MINI MAP TOOLBAR~
 
+// Print toolbar
 L.browserPrint().addTo(map)
 
-
-// ~START MOUSE COORDINATES TOOLBAR~
 	
 // Display mouse coordinates
 var mouseControl = new L.control.coordinates({
@@ -1257,11 +854,7 @@ var mouseControl = new L.control.coordinates({
 
 	map.addControl(mouseControl);
 	map.addControl(scaleControl);
-	
-// ~END MOUSE COORDINATES TOOLBAR~
 
-
-// ~START CREDITS TOOLBAR~
 	
 //Credits
 var credctrl = L.controlCredits({
@@ -1271,49 +864,20 @@ var credctrl = L.controlCredits({
     text: "Interactive Mapping<br/>by Luis Resh"
 }).addTo(map);
 
-// ~END CREDITS TOOLBAR~
-
-
-// ~START GEOCODER TOOLBAR~
 
 //Geocoder
-
 L.Control.geocoder({
 	position: "topleft"
 }).addTo(map);
-	
-// ~END GEOCODER TOOLBAR~
 
-
-// ~START MEASURING TOOLBAR~
 
 //Measuring Tool	
 var measureControl = new L.Control.Measure(options);
 measureControl.addTo(map);
 
-// ~END MEASURING TOOLBAR~
 
-
-// ~START Export TOOLBAR~
-	
-	// define toolbar options
-     
-     
-		
-// ~END Export TOOLBAR~	
-
-
-// ~START BOOKMARK TOOL~
-
+//Bookmark Toolbar
 var control = new L.Control.Bookmarks().addTo(map);
-
-// ~END BOOKMARK TOOL~
-
-
-
-
-
-
 
 
 
@@ -1362,126 +926,65 @@ document.getElementById('export').onclick = function(e) {
 
             // Stringify the GeoJson
             var convertedData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data));
+			
+			// then export to kml
+			var kml = tokml(convertedData);		
 
             // Create export
             document.getElementById('export').setAttribute('href', 'data:' + convertedData);
-            document.getElementById('export').setAttribute('download','data.geojson');
+            document.getElementById('export').setAttribute('download','data.json');
 			
 		
         }
 
-	
+		
+
+		
+
 
 //----------------------------------------------------------END MAP FUNCTIONS,TOOLS,& CONTROLS----------------------------------------------------------------------------------	
 
 
 
-L.geoJson(AAprojectlimits, {
-   style: function (feature) {
-       return {
-         stroke: true,
-         color: "red", 
-         weight: 5};
-   },
-   onEachFeature: function (feature, layer) {
-       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
-                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
-						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
-   }
-}).addTo(limits1);
 
-L.geoJson(BA637projectlimits, {
-   style: function (feature) {
-       return {
-         stroke: true,
-         color: "black", 
-         weight: 5};
-   },
-   onEachFeature: function (feature, layer) {
-       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
-                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
-						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
-   }
-}).addTo(limits2);
-
-L.geoJson(projectlimits, {
-   style: function (feature) {
-       return {
-         stroke: true,
-         color: "purple", 
-         weight: 5};
-   },
-   onEachFeature: function (feature, layer) {
-       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
-                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
-						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
-   }
-}).addTo(limits3);
-
-L.geoJson(HO245projectlimits, {
-   style: function (feature) {
-       return {
-         stroke: true,
-         color: "blue", 
-         weight: 5};
-   },
-   onEachFeature: function (feature, layer) {
-       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
-                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
-						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
-   }
-}).addTo(limits4);
-
-L.geoJson(MO384projectlimits, {
-   style: function (feature) {
-       return {
-         stroke: true,
-         color: "orange", 
-         weight: 5};
-   },
-   onEachFeature: function (feature, layer) {
-       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
-                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
-						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
-   }
-}).addTo(limits5);
-
-L.geoJson(PG402projectlimits, {
-   style: function (feature) {
-       return {
-         stroke: true,
-         color: "yellow", 
-         weight: 5};
-   },
-   onEachFeature: function (feature, layer) {
-       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
-                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
-						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
-   }
-}).addTo(limits6);
-
-L.geoJson(WA255projectlimits, {
-   style: function (feature) {
-       return {
-         stroke: true,
-         color: "green", 
-         weight: 5};
-   },
-   onEachFeature: function (feature, layer) {
-       layer.bindPopup("<b>Contract Number: </b>" + feature.properties.Contract_N + "<br>" + "<b>District: </b>" + feature.properties.District + "<br>" +
-                        "<b>Project Value: </b>" + feature.properties.Project_Value + "<br>" + "<b>County: </b>" + feature.properties.County + "<br>" + "<b>Status: </b>" + feature.properties.Status + "<br>"+
-						"<b>AD Date: </b>" + feature.properties.AD_DATE + "<br>" + "<b>Limits: </b>" + feature.properties.Limits + "<br>" + "<b>Duration: </b>" + feature.properties.Duration); 
-   }
-}).addTo(limits7);
-
+//TESTING********************************************************************************************************
 
 
 
 var popup = L.popup()
     .setLatLng([39.323438, -76.609383])
-    .setContent('<b>Change and add layers using the tool in top right corner.</b>')
+    .setContent('<b>Change and add layers using the tool<center>in top right corner.</center></b>')
     .openOn(map);
 
+	
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("help");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}	
+	
+	
+	
 
 
 
